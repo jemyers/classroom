@@ -1,4 +1,4 @@
-class profile::mount {
+class profile::mounts {
   mount { '/':
     ensure => 'mounted',
     device => '/dev/xvda1',
