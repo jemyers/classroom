@@ -1,6 +1,4 @@
 language: python
-script:
-  - "bundle install"
 branches:
   only:
   - master
