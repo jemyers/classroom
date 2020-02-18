@@ -1,5 +1,5 @@
 language: python
-script: "rake spec SPEC_OPTS='--format documentation'"
+script: "rake spec" 
 branches:
   only:
   - master
