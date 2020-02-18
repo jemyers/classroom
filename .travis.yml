@@ -1,4 +1,6 @@
 language: ruby
+script:
+  - "bundle install"
 branches:
   only:
   - master
