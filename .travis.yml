@@ -1,5 +1,5 @@
 language: python
-script: "bundle exec rake spec"
+script: "rake spec SPEC_OPTS='--format documentation'"
 branches:
   only:
   - master
