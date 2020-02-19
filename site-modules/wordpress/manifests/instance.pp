@@ -154,7 +154,7 @@ define wordpress::instance (
     wp_site_domain        => $wp_site_domain,
     wp_debug              => $wp_debug,
     wp_debug_log          => $wp_debug_log,
-    wp_debug_display      => $wp_debug_display
+    wp_debug_display      => $wp_debug_display,
   }
 
   wordpress::instace::db { "${db_host}/${db_name}":

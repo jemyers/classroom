@@ -30,7 +30,7 @@ define wordpress::instance::app (
   Boolean $wp_debug_display,
 ) {
   if $wp_config_content and ($wp_lang or $wp_debug or $wp_debug_log or $wp_debug_display or $wp_proxy_host or $wp_proxy_port or $wp_multisite or $wp_site_domain) {
-    warning('When $wp_config_content is set, the following parameter are ignored: $wp_table_prefix, $wp_lang, $wp_debug_log, $wp_debug_display, $wp_plugin_dir, $wp_proxy_host, $wp_proxy_port, $wp_multisite, $wp_site_domain, $wp_additional_config')
+    warning('When $wp_config_content is set, the following parameters are ignored: $wp_table_prefix, $wp_lang, $wp_debug, $wp_debug_log, $wp_debug_display, $wp_plugin_dir, $wp_proxy_host, $wp_proxy_port, $wp_multisite, $wp_site_domain, $wp_additional_config')
   }
 
   if $wp_multisite and ! $wp_site_domain {
@@ -56,34 +56,32 @@ define wordpress::instance::app (
 
   ## Resource defaults
   File {
-    owner => $wp_owner,
-    group => $wp_group,
-    mode => '0644',
+    owner  => $wp_owner,
+    group  => $wp_group,
+    mode   => '0644',
   }
   Exec {
-    path        => ['/bin','/sbin','/usr/bin','/usr/bin'],
+    path        => ['/bin','/sbin','/usr/bin','/usr/sbin'],
     cwd         => $install_dir,
     environment => $exec_environment,
     logoutput   => 'on_failure',
   }
 
-  ## Install directory
+  ## Installation directory
   if ! defined(File[$install_dir]) {
     file { $install_dir:
       ensure  => directory,
       recurse => true,
     }
   } else {
-    notice("Warning: cannot manage the permission of ${install_dir}, as another resource (perhaps apache::vhost?) is managing it.")
+    notice("Warning: cannot manage the permissions of ${install_dir}, as another resource (perhaps apache::vhost?) is managing it.")
   }
-
   ## tar.gz. file name lang-aware
   if $wp_lang and !empty($wp_lang) {
     $install_file_name = "wordpress-${version}-${wp_lang}.tar.gz"
   } else {
     $install_file_name = "wordpress-${version}.tar.gz"
   }
-
   ## Download and extract
   exec { "Download wordpress ${install_url}/wordpress-${version}.tar.gz to ${install_dir}":
     command => "curl -L -O ${install_url}/${install_file_name}",
@@ -93,7 +91,7 @@ define wordpress::instance::app (
     group   => $wp_group,
   }
   -> exec { "Extract wordpress ${install_dir}":
-    command => "tar zxvf ./${install_file_name} --strip-componets=1",
+    command => "tar zxvf ./${install_file_name} --strip-components=1",
     creates => "${install_dir}/index.php",
     user    => $wp_owner,
     group   => $wp_group,
@@ -104,9 +102,8 @@ define wordpress::instance::app (
     user        => $wp_owner,
     group       => $wp_group,
   }
-
   if $manage_wp_content {
-    file { "${install_dir}/wp_content":
+    file { "${install_dir}/wp-content":
       ensure  => directory,
       owner   => $wp_content_owner,
       group   => $wp_content_group,
@@ -121,7 +118,7 @@ define wordpress::instance::app (
     owner   => $wp_config_owner,
     group   => $wp_config_group,
     mode    => $wp_config_mode,
-    require => Exec["Extract wordpress ${install_dir}],
+    require => Exec["Extract wordpress ${install_dir}"],
   }
   if $wp_config_content {
     concat::fragment { "${install_dir}/wp-config.php body":
@@ -139,7 +136,7 @@ define wordpress::instance::app (
     }
     concat::fragment { "${install_dir}/wp-config.php keysalts":
       target  => "${install_dir}/wp-config.php",
-      sourcce => "${install_dir}/wp-keysalts.php",
+      source  => "${install_dir}/wp-keysalts.php",
       order   => '10',
       require => File["${install_dir}/wp-keysalts.php"],
     }
@@ -155,6 +152,7 @@ define wordpress::instance::app (
     # - $wp_proxy_port
     # - $wp_site_url
     # - $wp_multisite
+    # - $wp_site_domain
     # - $wp_additional_config
     # - $wp_debug
     # - $wp_debug_log
