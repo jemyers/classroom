@@ -1,0 +1,35 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.2
+
+Style/Documentation:
+  Enabled: false
+
+Lint/RescueException:
+  Exclude:
+    - 'lib/libhoney/transmission.rb'
+
+Metrics/BlockLength:
+  Max: 35
+
+Metrics/ClassLength:
+  Max: 200
+  Exclude:
+    - test/*
+
+Metrics/MethodLength:
+  Max: 40
+  Exclude:
+    - lib/libhoney/transmission.rb
+    - test/*
+
+Metrics/LineLength:
+  Max: 115
+  Exclude:
+    - lib/libhoney/client.rb
+    - lib/libhoney/builder.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - test/*

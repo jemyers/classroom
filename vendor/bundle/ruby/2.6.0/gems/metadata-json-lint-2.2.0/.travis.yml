@@ -1,0 +1,25 @@
+---
+language: ruby
+
+script:
+  - bundle exec rake test
+
+sudo: false
+
+rvm:
+  - 2.1.9
+  - 2.4.3
+  - 2.4.4
+  - 2.5.1
+
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Rm6j/fS5n4TyqmqftwMj2Ebw0avsuDbuI9wVX4exUNiuQRru967QPrQinMuAwBGLCNYMs69ZHFBMkpk61khQGC3W7d5Yr/25HabnQBFpfO2llHhKKgM/Ckyqur+ku88EVJH9nRCDqOprJtC4RGHIA833ENL8xVP/VOvfiKG0Q14=
+  gem: metadata-json-lint
+  on:
+    tags: true
+    repo: voxpupuli/metadata-json-lint
+
+notifications:
+  email: false

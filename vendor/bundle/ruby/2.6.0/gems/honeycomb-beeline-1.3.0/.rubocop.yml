@@ -1,0 +1,60 @@
+require: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - "examples/**/*"
+    - "vendor/**/*"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/BlockLength:
+  Exclude:
+    - honeycomb-beeline.gemspec
+    - spec/**/*.rb
+
+Metrics/AbcSize:
+  Max: 50
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/LineLength:
+  Exclude:
+    - spec/support/event_data_shared_examples.rb
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+  Exclude:
+    - gemfiles/**/*
+
+Naming/FileName:
+  Exclude:
+    - lib/honeycomb-beeline.rb
+
+Style/SymbolProc:
+  Exclude:
+    - lib/honeycomb/span.rb
+
+Lint/HandleExceptions:
+  Exclude:
+    - lib/honeycomb-beeline.rb
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method

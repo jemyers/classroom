@@ -1,0 +1,5 @@
+current directory: /Users/jeremy/github/classroom/vendor/bundle/ruby/2.6.0/gems/rainbow-2.2.2/ext
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby mkrf_conf.rb
+
+current directory: /Users/jeremy/github/classroom/vendor/bundle/ruby/2.6.0/gems/rainbow-2.2.2/ext
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I/Library/Ruby/Site/2.6.0/rubygems -rrubygems /Users/jeremy/github/classroom/vendor/bundle/ruby/2.6.0/gems/rake-12.3.3/exe/rake RUBYARCHDIR\=/Users/jeremy/github/classroom/vendor/bundle/ruby/2.6.0/extensions/universal-darwin-19/2.6.0/rainbow-2.2.2 RUBYLIBDIR\=/Users/jeremy/github/classroom/vendor/bundle/ruby/2.6.0/extensions/universal-darwin-19/2.6.0/rainbow-2.2.2
