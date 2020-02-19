@@ -1,5 +1,8 @@
-language: python
-script: "rake spec" 
-branches:
-  only:
-  - master
+language: ruby
+os:
+  - linux
+env:
+  - PUPPET_VERSION=5.3.6
+script: 
+  - bundle exec rake validate
+  - bundle exec rake lint
