@@ -3,5 +3,5 @@ class profile::mounts {
     ensure => 'mounted',
     device => '/dev/xvda1',
     fstype => 'xfs',
- }
+  }
 }

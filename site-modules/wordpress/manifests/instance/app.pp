@@ -125,7 +125,7 @@ define wordpress::instance::app (
   }
   if $wp_config_content {
     concat::fragment { "${install_dir}/wp-config.php body":
-      target  => "${install_dir}/wp-config.php:,
+      target  => "${install_dir}/wp-config.php",
       content => $wp_config_content,
       order   => '20',
     }
