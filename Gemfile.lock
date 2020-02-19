@@ -175,7 +175,7 @@ GEM
       tty-color (~> 0.5)
     pathspec (0.2.1)
     pdk (1.16.0)
-      bundler (>= 2.1.4, 1.15.0, < 3.0.0)
+      bundler (>= 2.1.4, = 1.15.0, < 3.0.0)
       childprocess (~> 0.7.1)
       concurrent-ruby (~> 1.1.5)
       cri (~> 2.10)
