@@ -117,7 +117,7 @@ define wordpress::instance (
   $wp_additional_config   = 'DEFAULT',
   $wp_table_prefix        = 'wp_',
   $wp_proxy_host          = '',
-  $wp_proxt_port          = '',
+  $wp_proxy_port          = '',
   $wp_site_url            = undef,
   $wp_multisite           = false,
   $wp_site_domain         = '',
