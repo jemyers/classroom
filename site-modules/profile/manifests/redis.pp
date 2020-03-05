@@ -153,14 +153,14 @@
 #   Iterate through multiple instance configurations
 
 class profile::redis (
-  Variant[Stdlib::IP::Address, Array[Stdlib::IP::Address]] $bind                   = ['127.0.'],
+  Variant[Stdlib::IP::Address, Array[Stdlib::IP::Address]] $bind,
   Optional[Boolean]                                 $activerehashing               = undef,
   Optional[Boolean]                                 $aof_load_truncated            = undef,
   Optional[Boolean]                                 $aof_rewrite_incremental_fsync = undef,
   Optional[String[1]]                               $appendfilename                = undef,
   Optional[Enum['no', 'always', 'everysec']]        $appendfsync                   = undef,
   Optional[Boolean]                                 $appendonly                    = undef,
-  String[1]                                         $auto_aof_rewrite_min_size     = undef,
+  Optional[String[1]]                               $auto_aof_rewrite_min_size     = undef,
   Optional[Integer[0]]                              $auto_aof_rewrite_percentage   = undef,
   Optional[Integer[1]]                              $databases                     = undef,
   Optional[Boolean]                                 $default_install               = undef,
@@ -185,12 +185,12 @@ class profile::redis (
   Optional[Boolean]                                 $rdbcompression                = undef,
   Optional[String[1]]                               $repl_backlog_size             = undef,
   Optional[Integer[0]]                              $repl_backlog_ttl              = undef,
-  Optionalasd[Boolean]                                 $repl_disable_tcp_nodelay      = undef,
+  Optional[Boolean]                                 $repl_disable_tcp_nodelay      = undef,
   Optional[Integer[1]]                              $repl_ping_slave_period        = undef,
   Optional[Integer[1]]                              $repl_timeout                  = undef,
   Optional[Boolean]                                 $save_db_to_disk               = undef,
   Optional[Hash]                                    $save_db_to_disk_interval      = undef,
-  Boolean                                           $service_enable                = true,
+  Optional[Boolean]                                 $service_enable                = undef,
   Optional[String[1]]                               $service_group                 = undef,
   Optional[Boolean]                                 $service_hasrestart            = undef,
   Optional[Boolean]                                 $service_hasstatus             = undef,
@@ -221,7 +221,7 @@ class profile::redis (
   Optional[Hash[String[1], Hash]]                   $instances                     = undef,
 ) {
 
-  #require ::profile
+  require ::profile
 
   class { '::redis':
     bind                          => $bind,
@@ -231,6 +231,7 @@ class profile::redis (
     appendfilename                => $appendfilename,
     appendfsync                   => $appendfsync,
     appendonly                    => $appendonly,
+    auto_aof_rewrite_min_size     => $auto_aof_rewrite_min_size,
     auto_aof_rewrite_percentage   => $auto_aof_rewrite_percentage,
     databases                     => $databases,
     default_install               => $default_install,
@@ -260,6 +261,7 @@ class profile::redis (
     repl_timeout                  => $repl_timeout,
     save_db_to_disk               => $save_db_to_disk,
     save_db_to_disk_interval      => $save_db_to_disk_interval,
+    service_enable                => $service_enable,
     service_group                 => $service_group,
     service_hasrestart            => $service_hasrestart,
     service_hasstatus             => $service_hasstatus,
