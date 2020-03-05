@@ -185,7 +185,7 @@ class profile::redis (
   Optional[Boolean]                                 $rdbcompression                = undef,
   Optional[String[1]]                               $repl_backlog_size             = undef,
   Optional[Integer[0]]                              $repl_backlog_ttl              = undef,
-  Optional[Boolean]                                 $repl_disable_tcp_nodelay      = undef,
+  Optionalasd[Boolean]                                 $repl_disable_tcp_nodelay      = undef,
   Optional[Integer[1]]                              $repl_ping_slave_period        = undef,
   Optional[Integer[1]]                              $repl_timeout                  = undef,
   Optional[Boolean]                                 $save_db_to_disk               = undef,
