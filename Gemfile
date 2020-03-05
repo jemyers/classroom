@@ -30,7 +30,7 @@ group :development do
   gem "puppet-module-win-dev-r#{minor_version}", '~> 0.3',       require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem 'puppet-lint'
   gem 'rspec-puppet'
-  gem "bundler", "2.1.2"
+  gem "bundler", "1.16.6""
 end
 
 puppet_version = ENV['PUPPET_GEM_VERSION']
