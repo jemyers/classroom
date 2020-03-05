@@ -71,5 +71,4 @@ gems['puppet'] = location_for(puppet_version)
 #  if File.file?(gemfile) && File.readable?(gemfile)
 #    eval(File.read(gemfile), binding)
 #  end
-#end
-# vim: syntax=ruby
+end
