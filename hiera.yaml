@@ -13,7 +13,7 @@ hierarchy:
     path: "domain/%{facts.domain}.yaml"
 
   - name: "Application tier (trusted)"
-    path: "application/%{::trusted.extensions.pp_application}/%{::trusted.extentions.pp_apptier}.yaml
+    path: "application/%{::trusted.extensions.pp_application}/%{::trusted.extentions.pp_apptier}.yaml"
 
   - name: "Application name (trusted)"
     path: "application/%{application).yaml"
