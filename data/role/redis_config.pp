@@ -1,2 +1,2 @@
 ---
-profile::redis::databases: 16
+profile::redis::databases: 1
