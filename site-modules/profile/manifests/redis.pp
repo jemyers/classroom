@@ -153,7 +153,7 @@
 #   Iterate through multiple instance configurations
 
 class profile::redis (
-  Variant[Stdlib::IP::Address, Array[Stdlib::IP::Address]] $bind,
+  Variant[Stdlib::IP::Address, Array[Stdlib::IP::Address]] $bind                   = ['127.0.0.1]',
   Optional[Boolean]                                 $activerehashing               = undef,
   Optional[Boolean]                                 $aof_load_truncated            = undef,
   Optional[Boolean]                                 $aof_rewrite_incremental_fsync = undef,
