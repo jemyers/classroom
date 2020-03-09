@@ -221,7 +221,7 @@ class profile::redis (
   Optional[Hash[String[1], Hash]]                   $instances                     = undef,
 ) {
 
-  require ::profile
+  #require ::profile
 
   class { '::redis':
     bind                          => $bind,
