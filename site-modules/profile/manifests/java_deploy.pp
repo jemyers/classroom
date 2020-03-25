@@ -11,7 +11,7 @@ class profile::java_deploy (
   Optional[Boolean]              $cleanup      = undef,
   Optional[Stdlib::Absolutepath] $archive_path = undef,
 )
-  archive { "/tmp/test.txt":
+  archive { "/tmp/${filename}":
     ensure       => $ensure,
     path         => '/tmp',
     extract      => true,
