@@ -1,4 +1,4 @@
-class profile::java_deployment (
+class profile::java_deploy (
   Optional[Stdlib::HTTPUrl]      $url          = undef,
   String                         $path         = $name,
   Enum['present', 'absent']      $ensure       = present,
@@ -10,7 +10,7 @@ class profile::java_deployment (
   Optional[String]               $creates      = undef,
   Optional[Boolean]              $cleanup      = undef,
   Optional[Stdlib::Absolutepath] $archive_path = undef,
-) {
+)
   archive { $file_path:
     ensure        => $ensure,
     path          => $file_path,
@@ -22,4 +22,3 @@ class profile::java_deployment (
     creates       => $creates,
     cleanup       => $cleanup,
   }
-}
