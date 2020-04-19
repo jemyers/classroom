@@ -1,4 +1,4 @@
-class profile::archive { 'archive':
+class profile::archive {
   archive { '/tmp/test.txt':
   ensure       => present,
   extract      => true,
