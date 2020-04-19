@@ -3,7 +3,7 @@ class profile::archive {
   ensure       => present,
   extract      => false,
   extract_path => '/tmp',
-  source       => 'https://repo.jfrog.org/artifactory/distributions/images/Artifactory_120x75.png',
+  url       => 'https://repo.jfrog.org/artifactory/distributions/images/Artifactory_120x75.png',
   creates      => '/tmp/javax',
   cleanup      => false,
   }
