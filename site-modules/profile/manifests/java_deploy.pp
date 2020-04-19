@@ -1,6 +1,6 @@
 class profile::java_deploy (
   Optional[Stdlib::HTTPUrl]      $url          = undef,
-  String                         $filename     = test.txt,
+  String                         $filename     = java.txt,
   String                         $path         = $name,
   Enum['present', 'absent']      $ensure       = present,
   Optional[String]               $owner        = undef,
