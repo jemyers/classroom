@@ -1,9 +1,9 @@
 class profile::archive {
   archive { '/tmp/test.txt':
   ensure       => present,
-  extract      => true,
+  extract      => false,
   extract_path => '/tmp',
-  source       => 'http://central.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.jar',
+  source       => 'https://repo.jfrog.org/artifactory/distributions/images/Artifactory_120x75.png',
   creates      => '/tmp/javax',
   cleanup      => false,
   }
