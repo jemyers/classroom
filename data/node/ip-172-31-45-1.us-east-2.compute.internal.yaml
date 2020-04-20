@@ -1,4 +1,4 @@
 ---
 profile::archive::filename: 'test.tar.gz'
-profile::archive::owner: 'jeremy'
+profile::archive::user: 'jeremy'
 #profile::archive:created_path: /tmp
