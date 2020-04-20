@@ -1,6 +1,6 @@
 class profile::archive (
   String $filename,    # version being downloaded
-  Optional[String]  $user = undef,
+  String  $user           = undef,
   
 
  # String $created_path # Directory containg the war files
