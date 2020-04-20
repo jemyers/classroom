@@ -5,7 +5,7 @@ class profile::archive
 
 #) 
 {
-  $filename = heira('profile::archive::filename')
+  $filename = hiera('profile::archive::filename')
 #  $artifactory_host = heira('artifactory_host')
 #  $artifactory_port = heira('artifactroy_port')
 
