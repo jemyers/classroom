@@ -1,6 +1,6 @@
 class profile::archive {
   archive { '/tmp/test.tar.gz':
-  ensure       => absent,
+  ensure       => present,
   extract      => false,
   extract_path => '/tmp',
   source       => 'https://downloads.apache.org/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33-deployer.tar.gz',
