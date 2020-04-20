@@ -1,5 +1,5 @@
 class profile::archive {
-  archive { '/tmp/test.zip':
+  archive { '/tmp/test.tar':
   ensure       => present,
   extract      => false,
   extract_path => '/tmp',
