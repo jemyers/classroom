@@ -1,5 +1,8 @@
 class profile::archive (
   String $filename,    # version being downloaded
+  Optional[String]  $owner = undef,
+  
+
  # String $created_path # Directory containg the war files
 
 ) 
@@ -10,10 +13,11 @@ class profile::archive (
 
   archive { "/tmp/${filename}":
   ensure       => present,
-  extract      => false,
+  extract      => true,
   extract_path => '/tmp',
   source       => "https://downloads.apache.org/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33-deployer.tar.gz",
   creates      => "/tmp/${filename}",
   cleanup      => true,
+  owner        => 'jeremy',
   }
 }
