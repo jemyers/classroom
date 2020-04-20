@@ -1,5 +1,5 @@
 class profile::archive (
-  String $filename    # version being downloaded
+  String $filename,    # version being downloaded
  # String $created_path # Directory containg the war files
 
 ) {
