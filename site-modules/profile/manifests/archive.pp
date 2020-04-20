@@ -10,7 +10,7 @@ class profile::archive (
 
   archive { "/tmp/${filename}":
   ensure       => present,
-  extract      => true,
+  extract      => false,
   extract_path => '/tmp',
   source       => "https://downloads.apache.org/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33-deployer.tar.gz",
   creates      => "/tmp/${filename}",
