@@ -1,4 +1,4 @@
 ---
 profile::archive::filename: 'test.tar.gz'
-profile::archive::user: 'jeremy'
+profile::archive::user: 'centos'
 #profile::archive:created_path: /tmp
