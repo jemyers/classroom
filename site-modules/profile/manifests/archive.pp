@@ -1,11 +1,9 @@
-
-
 class profile::archive {
-  archive { '/tmp/jta-1.1.jar':
+  archive { '/tmp/test':
   ensure       => present,
   extract      => true,
   extract_path => '/tmp',
-  source       => 'http://central.maven.org/maven2/javax/transaction/jta/1.1/jta-1.1.jar',
+  source       => 'https://downloads.apache.org/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33-deployer.tar.gz',
   creates      => '/tmp/javax',
   cleanup      => false,
   }
