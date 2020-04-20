@@ -1,9 +1,11 @@
-class profile::archive (
-  String $filename,    # version being downloaded
+class profile::archive 
+#(
+#  String $filename,    # version being downloaded
  # String $created_path # Directory containg the war files
 
-) {
-
+#) 
+{
+  $filename = heira('profile::archive::filename')
 #  $artifactory_host = heira('artifactory_host')
 #  $artifactory_port = heira('artifactroy_port')
 
