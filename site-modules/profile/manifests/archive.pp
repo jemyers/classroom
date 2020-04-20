@@ -1,5 +1,5 @@
 class profile::archive {
-  archive { '/tmp/test':
+  archive { '/tmp/test.txt':
   ensure       => present,
   extract      => true,
   extract_path => '/tmp',
